@@ -116,6 +116,7 @@ public class CalcularJanelaCorrer2F implements ActionListener {
 		
 		return totalJanela;
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
