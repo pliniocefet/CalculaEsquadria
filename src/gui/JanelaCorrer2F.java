@@ -34,6 +34,7 @@ public class JanelaCorrer2F extends JFrame{
 	JButton btCalcular;  
 	JButton btGravar;
 	JButton btLimpar;
+	CalcularJanelaCorrer2F controller;
 	
 	Valores tipoVidro;
 	
@@ -89,8 +90,14 @@ public class JanelaCorrer2F extends JFrame{
 		this.lbResultTotal = lbResultTotal;
 	}
 
-	public JanelaCorrer2F() {
+	public void exibir(boolean b) {
+		tela.setVisible(b);
+	}
+	
+	public JanelaCorrer2F(CalcularJanelaCorrer2F controller) {
+		this.controller = controller;
 		tela = new JFrame("Janela de Correr 2 Folhas com vidro"); 
+		
 		tela.setLayout(null); //seta o layout do painel como nulo
 		
 		//Instancia dos componentes
@@ -174,7 +181,7 @@ public class JanelaCorrer2F extends JFrame{
 		tela.setSize(500, 500);//Configura tamanho da tela
 		tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //fecha a aplicação ao clicar no X
 		tela.setLocationRelativeTo(null);//Configura localização da tela no centro
-		tela.setVisible(true);
+//		tela.setVisible(true);
 		
 		btLimpar.addActionListener(new ActionListener() {
 			@Override
@@ -189,14 +196,8 @@ public class JanelaCorrer2F extends JFrame{
 			}
 		});
 		
-		btCalcular.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
+		btCalcular.addActionListener(controller);
+		
 	}
 	
 	public double recuperaValorVidro(){

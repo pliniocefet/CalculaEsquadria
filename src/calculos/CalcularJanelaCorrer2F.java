@@ -1,10 +1,14 @@
 package calculos;
 
 import gui.JanelaCorrer2F;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import dados.AcessorioJanelaCorrer2F;
 import dados.Valores;
 
-public class CalcularJanelaCorrer2F {
+public class CalcularJanelaCorrer2F implements ActionListener {
 	JanelaCorrer2F janelaCorrer2F;	
 	AcessorioJanelaCorrer2F acessorioJanelaCorrer2F;
 	Valores valores;
@@ -19,19 +23,19 @@ public class CalcularJanelaCorrer2F {
 	
 	
 	public CalcularJanelaCorrer2F() {
-		janelaCorrer2F = new JanelaCorrer2F();
+		janelaCorrer2F = new JanelaCorrer2F(this);
 		acessorioJanelaCorrer2F = new AcessorioJanelaCorrer2F();
 		valores = new Valores();
 
 		//Recebe e converte valores String de tfAltura e tfLargura para Double
-		larguraConvertida = Double.parseDouble(janelaCorrer2F.getTfLargura().getText());
-		alturaConvertida = Double.parseDouble(janelaCorrer2F.getTfAltura().getText());
-		quantidadeConvertida = Integer.parseInt(janelaCorrer2F.getTfQuantidade().getText());
+//		larguraConvertida = Double.parseDouble(janelaCorrer2F.getTfLargura().getText());
+//		alturaConvertida = Double.parseDouble(janelaCorrer2F.getTfAltura().getText());
+//		quantidadeConvertida = Integer.parseInt(janelaCorrer2F.getTfQuantidade().getText());
 	
 	}
 	
 	public double calculaAcessorio() {
-		//CALCULA VALOR TOTAL EM ACESSÓRIOS DE ACORDO COM A QUANTIDADE INFORMADA
+		//CALCULA VALOR TOTAL EM ACESSï¿½RIOS DE ACORDO COM A QUANTIDADE INFORMADA
 		
 		if(quantidadeConvertida <= 0){
 			
@@ -69,8 +73,8 @@ public class CalcularJanelaCorrer2F {
 		 * multiplicar larguraConvertida por pesoLargura(dentro da classe Valores)-----ok
 		 * multiplicar alturaConvertida por pesoAltura(dentro da classe Valores)-------ok
 		 * 
-		 * resultado da multiplicação larguraConvertida por pesoLargura, multiplicar por preço do kg do aluminio -------ok
-		 * resultado da multiplicação alturaConvertida por pesoAltura, multiplicar por preço do kg do aluminio ---------ok
+		 * resultado da multiplicaï¿½ï¿½o larguraConvertida por pesoLargura, multiplicar por preï¿½o do kg do aluminio -------ok
+		 * resultado da multiplicaï¿½ï¿½o alturaConvertida por pesoAltura, multiplicar por preï¿½o do kg do aluminio ---------ok
 		 * 
 		 * */
 		
@@ -86,7 +90,7 @@ public class CalcularJanelaCorrer2F {
 	public double calculaVidro() {
 		//*** Para calcular as medidas dos vidros vou simplificar ***
 		// Recuperar a larguraConvertida e multiplicar pela alturaConvertida
-		// Depois multiplicar pelo valor do vidro escolhido pelo usuário
+		// Depois multiplicar pelo valor do vidro escolhido pelo usuï¿½rio
 		//
 		
 		valorVidro = ( larguraConvertida * alturaConvertida ) * (janelaCorrer2F.recuperaValorVidro());
@@ -111,6 +115,16 @@ public class CalcularJanelaCorrer2F {
 		totalJanela = subtotalJanela + subtotalJanela;
 		
 		return totalJanela;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("action :".concat(e.getSource().toString()));
+		
+	}
+	
+	public final void show() {
+		janelaCorrer2F.exibir(true);
 	}
 	
 }

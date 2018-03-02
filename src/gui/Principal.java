@@ -12,10 +12,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import calculos.CalcularJanelaCorrer2F;
+
 
 public class Principal extends JFrame{
 	
-	//Variáveis de instância
+	//Variï¿½veis de instï¿½ncia
 	JFrame tela;
 	JPanel painel;
 	GridLayout configGridLayout;
@@ -33,7 +35,7 @@ public class Principal extends JFrame{
 	
 	public Principal(){
 		
-		//Instancia os objetos responsáveis por criar a tela
+		//Instancia os objetos responsï¿½veis por criar a tela
 		tela = new JFrame("Calcular Esquadrias");
 		painel = new JPanel();
 		mbMenuBar = new JMenuBar();
@@ -56,21 +58,21 @@ public class Principal extends JFrame{
 		mMenu.add(miSair); // adiciona o item "Exit" no menu File.
 		
 		
-		// configuração do layout do painel 
+		// configuraï¿½ï¿½o do layout do painel 
 		configGridLayout = new GridLayout(3,2); // Instancia um objeto GridLayout com 3 linhas x 2 colunas
-		configGridLayout.setHgap(3); // seta o espaço entre os elementos dentro do grid na horizontal
-		configGridLayout.setVgap(3); // seta o espaço entre os elementos dentro do grid na vertical
+		configGridLayout.setHgap(3); // seta o espaï¿½o entre os elementos dentro do grid na horizontal
+		configGridLayout.setVgap(3); // seta o espaï¿½o entre os elementos dentro do grid na vertical
 		painel.setLayout(configGridLayout); //seta o layout do painel
 		painel.setBounds(20, 150, 450, 100); // posiciona o painel no frame
 		
 		
-		painel.add(btJanelaCorrer); //adiciona o botão no frame
-		painel.add(btMaxiar); //adiciona o botão no frame
-		painel.add(btPortaCorrer); //adiciona o botão no frame
-		painel.add(btFixo); //adiciona o botão no frame
-		painel.add(btPortaGiro); //adiciona o botão no frame
-		painel.add(btJanelaVeneziana); //adiciona o botão no frame
-		painel.add(btPortaVeneziana); //adiciona o botão no frame
+		painel.add(btJanelaCorrer); //adiciona o botï¿½o no frame
+		painel.add(btMaxiar); //adiciona o botï¿½o no frame
+		painel.add(btPortaCorrer); //adiciona o botï¿½o no frame
+		painel.add(btFixo); //adiciona o botï¿½o no frame
+		painel.add(btPortaGiro); //adiciona o botï¿½o no frame
+		painel.add(btJanelaVeneziana); //adiciona o botï¿½o no frame
+		painel.add(btPortaVeneziana); //adiciona o botï¿½o no frame
 		
 		tela.add(painel);
 		tela.setSize(500,500);
@@ -78,7 +80,7 @@ public class Principal extends JFrame{
 		tela.setLocationRelativeTo(null);
 		tela.setVisible(true);
 		
-		//****Ação do Menu****//
+		//****Aï¿½ï¿½o do Menu****//
 		miSair.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -87,11 +89,13 @@ public class Principal extends JFrame{
 			}
 		});
 		
-		//****Ação dos botões****//
+		//****Aï¿½ï¿½o dos botï¿½es****//
 		btJanelaCorrer.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				new JanelaCorrer2F();
+//				new JanelaCorrer2F();
+				CalcularJanelaCorrer2F janelaCorrer2FController = new CalcularJanelaCorrer2F();
+				janelaCorrer2FController.show();
 				
 			}
 		});
